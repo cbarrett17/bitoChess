@@ -1,8 +1,7 @@
-import java.awt.Color;
 public class CompPlayer extends Player {
     private String algorithm;
     private int depth;
-    public CompPlayer(String name, Color color, String algorithm, int depth) {
+    public CompPlayer(String name, String color, String algorithm, int depth) {
         super(name, color, false);
         this.algorithm = algorithm;
         this.depth = depth;
