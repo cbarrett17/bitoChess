@@ -1,9 +1,10 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
     private Scanner scanner;
 
-    public HumanPlayer(String name, String color) {
+    public HumanPlayer(String name, Color color) {
         super(name, color);
         this.scanner = new Scanner(System.in);
     }
@@ -31,5 +32,10 @@ public class HumanPlayer extends Player {
                 System.out.println("Invalid input: " + input);
             }
         }
+    }
+
+    @Override
+    public boolean getForfeitStatus() {
+        return false;
     }
 }
