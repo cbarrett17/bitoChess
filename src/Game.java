@@ -1,7 +1,10 @@
+import java.util.List;
+
 public class Game {
     private Board board;
     private Player whitePlayer;
     private Player blackPlayer;
+    private List<Move> moves;
     private boolean isGameOver;
     private Player winner;
     // Additional fields as needed
