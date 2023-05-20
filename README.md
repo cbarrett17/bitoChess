@@ -73,3 +73,34 @@ Chess project aided by Bito
    - It will also include buttons for undoing moves and saving and loading games
 
 These classes will work together to create a fully functioning one person chess game in Java.
+
+# Project Diagram
+
+src/
+├── ChessPiece.java
+├── King.java
+├── Queen.java
+├── Rook.java
+├── Bishop.java
+├── Knight.java
+├── Pawn.java
+├── Board.java
+├── Player.java
+├── Game.java
+├── Spot.java
+└── ComputerPlayer.java
+├── gui/
+│   ├── BoardGUI.java
+│   ├── PieceGUI.java
+│   └── SquareGUI.java
+├── test/
+│   ├── BoardTest.java
+│   ├── KingTest.java
+│   ├── QueenTest.java
+│   ├── RookTest.java
+│   ├── BishopTest.java
+│   ├── KnightTest.java
+│   ├── PawnTest.java
+│   ├── BoardGUITest.java
+│   ├── PlayerTest.java
+│   └── GameTest.java
