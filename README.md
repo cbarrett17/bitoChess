@@ -47,6 +47,18 @@ Chess project aided by Bito
    - This class will contain an 8x8 array of ChessSquare objects
    - It will be responsible for initializing the board and updating the squares based on the state of the game
    - It will also check for checkmate and stalemate conditions
+       ##### Disclaimer:
+     - The  *halfMoveClock*  variable is a field in the  Board  class that keeps track of the number of half-moves since the last pawn move or capture. 
+       - In chess, a "half-move" refers to one player making a move followed by their opponent making a move. 
+       - Counting half-moves is a way of keeping track of how long it has been since any progress has been made in the game, which is important for certain rules, such as the 50-move rule. 
+       - The 50-move rule states that a player can claim a draw if 50 consecutive moves are made where neither player makes a capture or moves a pawn. 
+       - The  *halfMoveClock*  variable is used to keep track of the number of consecutive moves where no pawn move or capture has been made, so that a draw can be claimed when this number reaches 50. 
+       - The variable is reset to 0 whenever a pawn is moved or a capture is made.
+     - The  *fullMoveCount*  variable is a field in the  Board  class that keeps track of the number of full moves made in the game. 
+       - In chess, a "full move" refers to one player making a move followed by their opponent making a move. 
+       - It is used to keep track of how many full moves have been made in the game so far, which is important for certain chess notation systems such as the Forsyth-Edwards Notation (FEN). 
+       - The variable is incremented by 1 after each move made by the black player, so that it accurately reflects the total number of full moves made in the game at any given time. 
+       - The  *fullMoveCount*  is used in FEN to represent the number of full moves made in the game so far.
 
 3. Spot Class:
    - This class will represent a single square on the chess board
