@@ -21,6 +21,7 @@ public class Board {
 
     public boolean movePiece(Piece piece, Spot destination) {
         // code to move a piece to the destination spot
+        return true;
     }
 
     public void removePiece(Piece piece) {
@@ -29,14 +30,17 @@ public class Board {
 
     public boolean isLegalMove(Piece piece, Spot destination) {
         // code to check if the given move is legal
+        return true;
     }
 
     public boolean isKingInCheck(String color) {
         // code to check if a king of the given color is in check
+        return true;
     }
 
     public boolean isCheckmate(String color) {
         // code to check if the given color is in checkmate
+        return true;
     }
 
     // additional methods for other functionality related to the game rules and state
