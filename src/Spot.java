@@ -1,22 +1,28 @@
 public class Spot {
-    private int row;
-    private int col;
-    private Piece piece;
+    private final int _row;
+    private final int _col;
+    private Piece _piece;
     public Spot(int row, int col) {
-        this.row = row;
-        this.col = col;
-        this.piece = null;
+        this._row = row;
+        this._col = col;
+        this._piece = null;
+    }
+
+    public Spot(int row, int col, Piece piece) {
+        this._row = row;
+        this._col = col;
+        this._piece = piece;
     }
     public int getRow() {
-        return row;
+        return _row;
     }
     public int getCol() {
-        return col;
+        return _col;
     }
     public Piece getPiece() {
-        return piece;
+        return _piece;
     }
     public void setPiece(Piece piece) {
-        this.piece = piece;
+        this._piece = piece;
     }
 }
