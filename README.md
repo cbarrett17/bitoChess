@@ -120,13 +120,14 @@ src/
 
 # Design Decisions
 
-Q: Should `Move` be an object or should a `makeMove` method be added to the `Player` class?
+#### Q: Should `Move` be an object or should a `makeMove` method be added to the `Player` class?
 
 A: It depends on your design requirements and preferences. Both options can be valid, but they have different trade-offs.
 
 If you choose to make  `Move`  an object, you can encapsulate the move data (such as source, target, and player) and pass it around as a parameter, 
 making it easier to work with and test the move separately from other player logic. It also allows you to store a history of moves, 
-which may be useful for things like undo/redo functionality. However, it requires an additional class and abstraction layer, which may add some overhead and complexity to your design.
+which may be useful for things like undo/redo functionality. However, it requires an additional class and abstraction layer, 
+which may add some overhead and complexity to your design.
 
 On the other hand, if you choose to add a  `makeMove`  method to the  `Player`  class, you can keep your design simpler and more focused on the player logic. 
 The move data is directly managed and executed by the player, which can simplify the code and reduce the number of objects needed. 
@@ -136,3 +137,16 @@ Ultimately, the decision depends on your specific needs and preferences.
 If you think that the move data encapsulation and historical tracking benefits of having a  `Move`  object outweigh the additional overhead and complexity, 
 then you should choose that option. Conversely, if you prefer a simpler and more direct approach that keeps the player logic focused on the move execution, 
 then adding a  `makeMove`  method to the  `Player`  class may be the better choice.
+
+
+#### Q: Does a  `Piece`  need to keep track of its  `currentSpot`  on the board or should that location be stored in the  `Board`  class?
+
+A: It is more appropriate to store the current location of a piece in the  `Board`  class rather than the  `Piece`  class. 
+The  `Board`  class is responsible for managing the state of the game, which includes the location of each piece on the board. 
+On the other hand, a  `Piece`  object should only contain information about its type and color, as well as any associated behavior 
+that is specific to that piece type (such as valid moves, captures, etc.).
+
+By keeping track of the location of each piece in the  `Board`  class, it becomes easier to update the state of the game when a move is made. 
+The  `Board`  class can then check if the move is valid for the piece being moved and update the location of the piece accordingly.
+
+Therefore, it is recommended to store the current location of a piece in the  `Board`  class rather than the  Piece  class.
