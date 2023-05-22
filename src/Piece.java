@@ -1,27 +1,14 @@
 import java.util.List;
 
 public abstract class Piece {
-    private final String _name;
-    private final String _color;
-    private Spot _currentSpot;
+    private final boolean _isWhite;
     private boolean _hasMoved;
-    public Piece(String name, String color, Spot currentSpot) {
-        this._name = name;
-        this._color = color;
-        this._currentSpot = currentSpot;
+    public Piece(boolean isWhite) {
+        this._isWhite = isWhite;
         this._hasMoved = false;
     }
-    public String getName() {
-        return _name;
-    }
-    public String getColor() {
-        return _color;
-    }
-    public Spot getCurrentSpot() {
-        return _currentSpot;
-    }
-    public void setCurrentSpot(Spot currentSpot) {
-        this._currentSpot = currentSpot;
+    public boolean getIsWhite() {
+        return _isWhite;
     }
     public boolean getHasMoved() {
         return _hasMoved;
@@ -38,8 +25,8 @@ public abstract class Piece {
 
 class King extends Piece {
 
-    public King(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public King(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
@@ -60,8 +47,8 @@ class King extends Piece {
 
 class Queen extends Piece {
 
-    public Queen(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public Queen(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
@@ -82,8 +69,8 @@ class Queen extends Piece {
 
 class Rook extends Piece {
 
-    public Rook(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public Rook(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
@@ -104,8 +91,8 @@ class Rook extends Piece {
 
 class Bishop extends Piece {
 
-    public Bishop(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public Bishop(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
@@ -126,8 +113,8 @@ class Bishop extends Piece {
 
 class Knight extends Piece {
 
-    public Knight(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public Knight(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
@@ -148,8 +135,8 @@ class Knight extends Piece {
 
 class Pawn extends Piece {
 
-    public Pawn(String name, String color, Spot currentSpot) {
-        super(name, color, currentSpot);
+    public Pawn(boolean isWhite) {
+        super(isWhite);
     }
 
     @Override
