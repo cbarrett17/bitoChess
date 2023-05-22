@@ -86,10 +86,10 @@ Chess project aided by Bito
 
 These classes will work together to create a fully functioning one person chess game in Java.
 
-# Project Diagram
+# Repo Structure
 
 src/
-├── ChessPiece.java
+├── Piece.java
 │   ├── King.java
 │   ├── Queen.java
 │   ├── Rook.java
