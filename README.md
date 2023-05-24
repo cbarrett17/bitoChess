@@ -88,37 +88,44 @@ These classes will work together to create a fully functioning one person chess 
 
 # Repo Structure
 
-src/
-├── Piece.java
-│   ├── King.java
-│   ├── Queen.java
-│   ├── Rook.java
-│   ├── Bishop.java
-│   ├── Knight.java
-│   └── Pawn.java
-├── Board.java
-├── Player.java
-│   ├── CompPlayer.java
-│   └── HumanPlayer.java
-├── Game.java
-├── Spot.java
-├── gui/
-│   ├── BoardGUI.java
-│   ├── PieceGUI.java
-│   └── SquareGUI.java
-├── test/
-│   ├── BoardTest.java
-│   ├── KingTest.java
-│   ├── QueenTest.java
-│   ├── RookTest.java
-│   ├── BishopTest.java
-│   ├── KnightTest.java
-│   ├── PawnTest.java
-│   ├── BoardGUITest.java
-│   ├── PlayerTest.java
-│   └── GameTest.java
+    src/
+    ├── Piece.java
+    │   ├── King.java
+    │   ├── Queen.java
+    │   ├── Rook.java
+    │   ├── Bishop.java
+    │   ├── Knight.java
+    │   └── Pawn.java
+    ├── Board.java
+    ├── Player.java
+    │   ├── CompPlayer.java
+    │   └── HumanPlayer.java
+    ├── Game.java
+    ├── Spot.java
+    ├── gui/
+    │   ├── BoardGUI.java
+    │   ├── PieceGUI.java
+    │   └── SquareGUI.java
+    ├── test/
+    │   ├── BoardTest.java
+    │   ├── KingTest.java
+    │   ├── QueenTest.java
+    │   ├── RookTest.java
+    │   ├── BishopTest.java
+    │   ├── KnightTest.java
+    │   ├── PawnTest.java
+    │   ├── BoardGUITest.java
+    │   ├── PlayerTest.java
+    │   └── GameTest.java
 
 # Design Decisions
+
+---
+
+### Disclaimer:
+#### The answers to specific questions about code blocks are not pulled from the existing codebase but generated examples on a prompt-by-prompt basis.
+
+---
 
 #### Q: Should `Move` be an object or should a `makeMove` method be added to the `Player` class?
 
@@ -150,3 +157,30 @@ By keeping track of the location of each piece in the  `Board`  class, it become
 The  `Board`  class can then check if the move is valid for the piece being moved and update the location of the piece accordingly.
 
 Therefore, it is recommended to store the current location of a piece in the  `Board`  class rather than the  Piece  class.
+
+
+#### Q: How do I access a specific Piece so that I can move it?
+
+A: You can access a specific  `Piece`  object in a few different ways, depending on how your  `Board`  class is implemented. Here are some ways to access a specific  `Piece` :
+1. If you already know the row and column of the  `Piece`  you want to move, you can use the  `getPiece(int row, int col)`  method in your  `Board`  class to retrieve the  `Piece`  object at that position. For example, if you have a  `Board`  object called  `gameBoard` , and you want to access the  `Piece`  at row 2, column 3, you can do this:
+   
+        Piece myPiece = gameBoard.getPiece(2, 3);
+
+2. If you have a reference to the  `Board`  object and the  `Piece`  object, and you want to move that piece, you can call the  `movePiece(Piece piece, int newRow, int newCol)`  method in your  `Board`  class to move the  `Piece`  to a new location. For example, if you have a  `Board`  object called  `gameBoard`  and a  `Piece`  object called  `myPiece` , and you want to move  `myPiece`  to row 4, column 5, you can do this:
+   
+        gameBoard.movePiece(myPiece, 4, 5);
+
+3. If you don't know the exact location of the  `Piece`  you want to move, but you know its  `color`  and  `type`  , you can iterate through all the pieces on the board to find the matching  `Piece`  object. For example, if you have a  `Board`  object called  `gameBoard` , and you want to find the first white  `Pawn`  on the board, you can do something like this:
+   
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece currentPiece = gameBoard.getPiece(row, col);
+                if (currentPiece != null && currentPiece.getColor() == Color.WHITE && currentPiece.getType() == PieceType.PAWN) {
+                   // Found the white Pawn!
+                   gameBoard.movePiece(currentPiece, row - 1, col); // Move the Pawn up one row
+                   break;
+                }
+            }
+        }
+
+These are just a few examples of how you can access and move a specific  `Piece`  on your chess board. The specific implementation may vary depending on how your  `Board`  and  `Piece`  classes are designed.
