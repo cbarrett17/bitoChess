@@ -24,6 +24,14 @@ public class Board {
         // constructor code
     }
 
+    public Piece getPiece(int row, int col) {
+        return null;
+    }
+
+    public Piece getPiece(Piece piece) {
+        return null;
+    }
+
     public boolean movePiece(Piece piece, Spot destination) {
         // code to move a piece to the destination spot
         return true;
