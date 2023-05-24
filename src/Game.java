@@ -1,15 +1,19 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private Board board;
-    private Player whitePlayer;
-    private Player blackPlayer;
-    private List<Move> moves;
-    private boolean isGameOver;
-    private Player winner;
+    private Board _board;
+    private Player _whitePlayer;
+    private Player _blackPlayer;
+    private List<Move> _moves;
+    private boolean _isGameOver;
+    private Player _winner;
     // Additional fields as needed
     public Game(Board board, Player whitePlayer, Player blackPlayer) {
-        // constructor code
+        _board = board;
+        _whitePlayer = whitePlayer;
+        _blackPlayer = blackPlayer;
+        _moves = new ArrayList<>();
     }
     public void start() {
         // code to start the game and manage turns and moves
