@@ -25,11 +25,19 @@ public class Board {
     }
 
     public Piece getPiece(int row, int col) {
-        return null;
+        return _spots[row][col].getPiece();
     }
 
     public Piece getPiece(Piece piece) {
-        return null;
+        Piece myPiece = null;
+        for (int i = 0; i < BOARD_LW; i++) {
+            for (int j = 0; j < BOARD_LW; j++) {
+                if (_spots[i][j].getPiece().equals(piece)) {
+                    myPiece = piece;
+                }
+            }
+        }
+        return myPiece;
     }
 
     public boolean movePiece(Piece piece, Spot destination) {

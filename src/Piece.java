@@ -7,6 +7,7 @@ public abstract class Piece {
         this._isWhite = isWhite;
         this._hasMoved = false;
     }
+
     public boolean getIsWhite() {
         return _isWhite;
     }
