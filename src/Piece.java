@@ -3,11 +3,18 @@ import java.util.List;
 public abstract class Piece {
     private final boolean _isWhite;
     private boolean _hasMoved;
+    private int _row;
+    private int _col;
     public Piece(boolean isWhite) {
         this._isWhite = isWhite;
         this._hasMoved = false;
     }
-
+    public int getRow() {
+        return _row;
+    }
+    public int getCol() {
+        return _col;
+    }
     public boolean getIsWhite() {
         return _isWhite;
     }

@@ -28,20 +28,42 @@ public class Board {
         return _spots[row][col].getPiece();
     }
 
-    public Piece getPiece(Piece piece) {
-        Piece myPiece = null;
+    public Spot getSpot(Piece piece) {
+        Spot mySpot = null;
         for (int i = 0; i < BOARD_LW; i++) {
             for (int j = 0; j < BOARD_LW; j++) {
                 if (_spots[i][j].getPiece().equals(piece)) {
-                    myPiece = piece;
+                    mySpot = _spots[i][j];
                 }
             }
         }
-        return myPiece;
+        return mySpot;
     }
 
     public boolean movePiece(Piece piece, Spot destination) {
         // code to move a piece to the destination spot
+        int destRow = destination.getRow();
+        int destCol = destination.getCol();
+        int currRow = piece.getRow();
+        int currCol = piece.getCol();
+        Piece capturedPiece = getPiece(destRow, destCol);
+
+        // Check if the move is valid
+        if (!piece.getLegalMoves(this).contains(destination)) {
+            throw new IllegalArgumentException("Invalid move for this piece");
+        }
+
+        // Move the piece to the destination
+        destination.setPiece(piece);
+        getSpot(piece).removePiece();
+
+        // Update the position of the piece
+        piece.setPosition(destination);
+
+        // Capture the piece if necessary
+        if (capturedPiece != null) {
+            removePiece(capturedPiece);
+        }
         return true;
     }
 

@@ -25,4 +25,7 @@ public class Spot {
     public void setPiece(Piece piece) {
         this._piece = piece;
     }
+    public void removePiece() {
+        this._piece = null;
+    }
 }
